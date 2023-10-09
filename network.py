@@ -35,8 +35,8 @@ class NetWork:
             delta_nabla_w, delta_nabla_b = self.BP(sample)
             nabla_w = [nw + dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
             nabla_b = [nb + dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
-        self.weights = [weight - (n / eta) * nabla_w for weight, nabla_w in zip(self.weights, nabla_w)]
-        self.biases = [bias - (n / eta) * nabla_b for bias, nabla_b in zip(self.biases, nabla_b)]
+        self.weights = [weight - (eta / n) * nabla_w for weight, nabla_w in zip(self.weights, nabla_w)]
+        self.biases = [bias - (eta / n) * nabla_b for bias, nabla_b in zip(self.biases, nabla_b)]
 
     def BP(self, sample):
         nabla_w = [np.zeros(weight.shape) for weight in self.weights]
