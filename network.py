@@ -1,6 +1,5 @@
 import numpy as np
 import pickle
-import os
 
 
 class NetWork:
@@ -70,12 +69,12 @@ class NetWork:
 
     def save(self, file_name: str):
         parameters = (self.sizes, self.weights, self.biases)
-        file = open(__file__.replace(os.path.basename(__file__), "") + file_name, "wb")
+        file = open("./" + file_name, "wb")
         pickle.dump(parameters, file)
         file.close()
 
     def load(self, file_name: str):
-        file = open(__file__.replace(os.path.basename(__file__), "") + file_name, "rb")
+        file = open("./" + file_name, "rb")
         self.sizes, self.weights, self.biases = pickle.load(file)
         self.layers_number = len(self.sizes) + 1
         file.close()
