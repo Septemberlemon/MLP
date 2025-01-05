@@ -1,5 +1,6 @@
-import numpy as np
 import struct
+
+import numpy as np
 
 
 def load_mnist_images(filename):
